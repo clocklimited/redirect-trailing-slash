@@ -1,5 +1,5 @@
 {
-  "name": "redirect-trailing-slash",
+  "name": "@clocklimited/redirect-trailing-slash",
   "description": "Express middleware to redirect URLs with a trailing slash to the same URL without the slash",
   "version": "1.0.1",
   "dependencies": {},
@@ -20,12 +20,12 @@
     "express": "^4.13.4",
     "istanbul": "^0.2.7",
     "jscs": "^1.4.5",
-    "jshint": "^2.5.0",
+    "jshint": "^2.13.5",
     "mocha": "^1.18.2",
     "supertest": "^1.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:microadam/redirect-trailing-slash.git"
+    "url": "git@github.com:clocklimited/redirect-trailing-slash.git"
   }
 }
