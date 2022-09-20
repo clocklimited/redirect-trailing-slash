@@ -12,7 +12,19 @@ describe('redirect-trailing-slash', function () {
       .expect(301)
       .end(function (err, res) {
         if (err) return done(err)
-        assert.equal(res.headers.location, '/hello')
+        assert.equal(res.headers.location, '/hello?')
+        done()
+      })
+  })
+
+  it('should redirect to page without trailing slash when slash present with query string', function (done) {
+    var app = express().use(redirectTrailingSlash)
+    request(app)
+      .get('/hello/?test=hello')
+      .expect(301)
+      .end(function (err, res) {
+        if (err) return done(err)
+        assert.equal(res.headers.location, '/hello?test=hello')
         done()
       })
   })
@@ -46,7 +58,7 @@ describe('redirect-trailing-slash', function () {
       .expect(301)
       .end(function (err, res) {
         if (err) return done(err)
-        assert.equal(res.headers.location, '/danger.io')
+        assert.equal(res.headers.location, '/danger.io?')
         done()
       })
   })
@@ -58,7 +70,7 @@ describe('redirect-trailing-slash', function () {
       .expect(301)
       .end(function (err, res) {
         if (err) return done(err)
-        assert.equal(res.headers.location, '/%2F%2Fdanger.io')
+        assert.equal(res.headers.location, '/%2F%2Fdanger.io?')
         done()
       })
   })
@@ -70,7 +82,7 @@ describe('redirect-trailing-slash', function () {
       .expect(301)
       .end(function (err, res) {
         if (err) return done(err)
-        assert.equal(res.headers.location, '/danger.io')
+        assert.equal(res.headers.location, '/danger.io?')
         done()
       })
   })
@@ -100,7 +112,7 @@ describe('redirect-trailing-slash', function () {
       .expect(301)
       .end(function (err, res) {
         if (err) return done(err)
-        assert.equal(res.headers.location, '/.')
+        assert.equal(res.headers.location, '/.?')
         done()
       })
   })

@@ -1,9 +1,10 @@
 module.exports = middleware
+var qs = require('qs')
 
 function middleware(req, res, next) {
-  if (req.url === '/' || !/\/$/.test(req.url)) return next()
-  var url = req.url
+  if (req.path === '/' || !/\/$/.test(req.path)) return next()
+  var url = req.path
     .replace(/^\/+/, '/')
     .replace(/\/+$/, '')
-  res.redirect(301, url)
+  res.redirect(301, url + '?' + qs.stringify(req.query))
 }
