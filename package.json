@@ -11,9 +11,6 @@
     "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
     "prepublish": "npm test && npm prune"
   },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
-  },
   "author": "Adam Duncan <adam.jd@gmail.com>",
   "license": "ISC",
   "devDependencies": {
